@@ -1,0 +1,91 @@
+.about {
+	display: flex;
+	color: var(--colorVioletBlueDark);
+	padding-top: 150px;
+
+	&__header {
+		flex-grow: 1;
+		background-color: var(--colorVioletBlueDark);
+		position: relative;
+		color: var(--colorWhite);
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+
+		&:before {
+			content: '';
+			position: absolute;
+			background-image: url('../img/dist/intro-background.webp');
+			background-size: cover;
+			background-position: top right;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			right: 0;
+			opacity: 0.3;
+		}
+
+		&:after {
+			content: '';
+			position: absolute;
+			background-image: url('../img/dist/about_img1.webp');
+			min-width: 224px;
+			aspect-ratio: 3/4;
+			top: 50%;
+			left: 50%;
+			translate: -50% -50%;
+			background-size: contain;
+			background-repeat: no-repeat;
+			background-position: center;
+		}
+	}
+
+	&__subtittle {
+		position: relative;
+		z-index: 3;
+		font-size: 2.5rem;
+		font-family: MaliBlack;
+		letter-spacing: 0.4rem;
+		text-transform: uppercase;
+	}
+
+	&__tittle {
+		position: relative;
+		z-index: 3;
+		font-size: 5rem;
+		line-height: 4rem;
+	}
+
+	&__list {
+		min-width: 400px;
+		flex-basis: 30%;
+		background-color: var(--colorWhite);
+		padding: 160px 120px;
+		display: flex;
+		flex-direction: column;
+		gap: 4rem;
+	}
+
+	&__more {
+		position: relative;
+		flex-basis: 15%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	&__btn {
+		rotate: -90deg;
+	}
+
+	&__image {
+		position: absolute;
+		min-width: 224px;
+		width: 30%;
+		object-fit: contain;
+		top: 50%;
+		left: 50%;
+		translate: -50% -50%;
+	}
+}

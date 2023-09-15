@@ -1,0 +1,94 @@
+.team {
+	position: relative;
+	padding-top: 150px;
+
+	&__carousel {
+		display: flex;
+	}
+
+	&__spacer {
+		flex-grow: 1;
+		flex-basis: 0;
+	}
+
+	&__frame_horisontal {
+		position: relative;
+		width: 1440px;
+		height: 480px;
+	}
+
+	&__belt-horisontal {
+		position: absolute;
+		grid-template-columns: repeat(10, 33.3%);
+		grid-auto-flow: row;
+		transition: translate 500ms;
+		background-color: var(--colorVioletBlueDark);
+	}
+
+	&__item {
+		position: relative;
+		width: 480px;
+		aspect-ratio: 1;
+		padding: 80px;
+		transition: opacity 300ms;
+
+		&:hover {
+			.team__img {
+				opacity: 0.3;
+			}
+
+			.team__data {
+				opacity: 1;
+			}
+		}
+	}
+
+	&__img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		object-fit: cover;
+		transition: opacity 300ms;
+	}
+
+	&__data {
+		position: relative;
+		border: 3px solid var(--colorGreenLight);
+		height: 100%;
+		text-align: center;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		opacity: 0;
+		transition: opacity 300ms;
+
+		svg {
+			fill: var(--colorGreenLight);
+		}
+	}
+
+	&__title {
+		font-size: 1.875rem;
+		color: var(--colorWhite);
+		max-width: 200px;
+		margin-bottom: 30px;
+	}
+
+	&__contacts {
+		display: grid;
+		width: 40%;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 10px;
+	}
+
+	&__svg-wrapper {
+		aspect-ratio: 1;
+	}
+
+	& .carousel__controls {
+		flex-grow: 1;
+		flex-basis: 0;
+	}
+}

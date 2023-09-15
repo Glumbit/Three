@@ -1,0 +1,59 @@
+.projects {
+	color: var(--colorVioletBlueDark);
+	background: var(--colorWhiteDark);
+	padding-top: 110px;
+
+	&__carousel {
+		height: 700px;
+	}
+
+	&__frame_vertical {
+		background: var(--colorWhite);
+		height: 100%;
+	}
+
+	&__belt-vertical {
+		gap: 0px;
+		position: relative;
+		width: 30vw;
+		transition: translate 500ms;
+		flex-direction: column;
+	}
+
+	&__card-vertical {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		padding: 0 20%;
+		height: 700px;
+	}
+
+	&__frame_horisontal {
+		width: 50vw;
+		height: 100%;
+	}
+
+	&__belt-horisontal {
+		grid-template-columns: repeat(auto-fill, 50vw);
+		grid-auto-flow: column;
+		align-items: flex-start;
+		transition: translate 500ms;
+		height: 100%;
+		width: max-content;
+	}
+
+	&__img-horisontal {
+		height: 100%;
+		object-fit: cover;
+		width: 50vw;
+	}
+}
+
+.card-vertical__subtitle {
+	font-family: MaliBlack;
+	font-size: 0.8125rem;
+	color: var(--colorGreenLight);
+	text-transform: uppercase;
+	letter-spacing: 0.4em;
+	margin: 1.2rem 0;
+}

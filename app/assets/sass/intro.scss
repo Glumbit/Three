@@ -1,0 +1,57 @@
+.intro {
+	position: relative;
+	background-size: 100% 100%;
+	background-image: linear-gradient(180deg, var(--colorVioletBlueDark)96%, var(--colorWhite) 4%);
+	background-repeat: no-repeat;
+	height: 100vh;
+	z-index: 1;
+
+	&:before {
+		content: '';
+		position: absolute;
+		background-image: url('../img/dist/intro-background.webp');
+		background-size: cover;
+		opacity: 0.3;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+	}
+
+	&__inner {
+		position: relative;
+		color: var(--colorWhite);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100%;
+	}
+
+	&__title {
+		font-size: 12.5rem;
+		line-height: 180px;
+		font-weight: 400;
+		text-shadow: 0px 0px 50px rgba(0, 0, 0, 0.4);
+		color: var(--colorGreenLight);
+		opacity: 0.5;
+		text-align: center;
+	}
+
+	&__subtitle {
+		position: absolute;
+		top: 50%;
+		font-family: MaliBlack;
+		font-size: 5rem;
+		line-height: 23px;
+		letter-spacing: 0.4em;
+		text-shadow: 0px 0px 50px rgba(0, 0, 0, 0.4);
+	}
+
+	&__text {
+		position: absolute;
+		bottom: 100px;
+		right: 100px;
+		max-width: 350px;
+		text-align: end;
+	}
+}
