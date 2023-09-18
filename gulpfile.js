@@ -20,20 +20,14 @@ const browserSync = require('browser-sync').create();
 
 // КОНФЕРТОРЫ КАРТИНОК(в WEBP, AVIF)
 
-function avifConverter() {
-	return src(['app/assets/img/src/*.*', '!app/assets/img/src/*.svg'])
-		.pipe(newer('app/assets/img/dist'))
-		.pipe(avif({ quality: 50 }))
-}
-
 function webpConverter() {
-	return src('app/assets/img/src/*.*')
-		.pipe(newer('app/assets/img/dist'))
+	return src('app/stocks/img/*.*')
+		.pipe(newer('app/assets/img'))
 		.pipe(webp())
 }
 
 function sprite() {
-	return src('app/assets/img/dist/*.svg')
+	return src('app/stocks/img/*.svg')
 		.pipe(svgSprite({
 			mode: {
 				stack: {
@@ -42,14 +36,14 @@ function sprite() {
 				}
 			}
 		}))
-		.pipe(dest('app/assets/img/dist'))
+		.pipe(dest('app/assets/img'))
 }
 
 function imageMinimize(done) {
 	// include(avifConverter(), webpConverter()).pipe(imagemin()).pipe(dest(('app/assets/img/dist')))
 
 	// avifConverter().pipe(imagemin()).pipe(dest(('app/assets/img/dist')))
-	webpConverter().pipe(imagemin()).pipe(dest(('app/assets/img/dist')))
+	webpConverter().pipe(imagemin()).pipe(dest(('app/assets/img')))
 	done()
 }
 
@@ -102,7 +96,7 @@ function pageReload() {
 function onSave() {
 	pageReload()
 	watch(['app/assets/sass'], sassCompiler)
-	watch(['app/assets/img/src'], imageMinimize)
+	watch(['app/stocks/img'], imageMinimize)
 	watch(['app/assets/ts'], scripts)
 	watch(['app/assets/components/*', 'app/pages/*'], pagesMerge)
 	watch(['app/*.html']).on('change', browserSync.reload);
@@ -111,10 +105,10 @@ function onSave() {
 function buildCreate() {
 	return src([
 		'app/assets/css/style-min.css',
-		'app/assets/img/dist/*.*',
-		'!app/assets/img/dist/*.svg',
-		'!app/assets/img/dist/stack/sprite.stack.html',
-		'app/assets/img/dist/sprite.svg',
+		'app/assets/img/*.*',
+		'!app/assets/img/*.svg',
+		'!app/assets/img/stack/sprite.stack.html',
+		// 'app/assets/img/dist/sprite.svg',
 		'app/assets/js/main-min.js',
 		'app/*.html'
 	], { base: 'app' })
@@ -122,7 +116,7 @@ function buildCreate() {
 }
 
 function buildCleaner() {
-	return src('./build')
+	return src('./build/')
 		.pipe(clean());
 }
 
