@@ -43,6 +43,27 @@
 		}
 	}
 
+	&__label {
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		opacity: 0.1;
+		z-index: 2;
+		display: none;
+	}
+
+	&__input:checked {
+		&+.team__img {
+			opacity: 0.3;
+		}
+
+		&~.team__data {
+			opacity: 1;
+		}
+	}
+
 	&__img {
 		position: absolute;
 		top: 0;
